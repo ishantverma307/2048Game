@@ -57,27 +57,26 @@ function move(direction) {
     for (let i = 0; i < 4; i++) {
         let line = [];
 
-        // console.log(`\nprocessing ${direction == "up" || direction == 'down'
-        //     ? "column" : "row"} ${i}`)
+       
 
         for (let j = 0; j < 4; j++) {
             const index = direction == "up" || direction == "down" ? i + j * 4 : j + i * 4;
             const value = parseInt(tiles[index].dataset.value);
             if (value !== 0) line.push(value)
-            // line.push(value)
+            
         }
         console.log(`Original Line: ${line}`)
 
 
         if (direction == "right" || direction == "down") {
             line.reverse();
-            // console.log(`Reversed line for ${direction} : ${line}`)
+           
         }
 
         let mergedLine = mergeLine(line);
         if (direction == "right" || direction == "down") {
             mergedLine.reverse();
-            // console.log(`Reversed line for ${direction} : ${line}`)
+           
         }
 
 
@@ -106,7 +105,7 @@ function move(direction) {
 
 }
 function mergeLine(line) {
-    // 224 
+    
     for (let i = 0; i < line.length - 1; i++) {
         if (line[i] === line[i + 1]) {
             line[i] *= 2;
@@ -114,11 +113,11 @@ function mergeLine(line) {
             line.splice(i + 1, 1);
         }
     }
-    // 44
+    
     while (line.length < 4) {
         line.push(0);
     }
-    // 4400
+    
     return line;
 
 }
